@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Options | ZMT</title>
+	<link rel="stylesheet" href="css/fontello.css">
+	<link href="css/select2.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/options.css">
+</head>
+
+<body>
+	<div id="root">
+		<header>
+			<div class="logo"><a href="https://zohomailtracker.com/" target="_blank"><img src="images/logo64.png"></a></div>
+			<div class="menu">
+				<span><a href="#" class="active">Settings</a></span>
+				<span><a href="#">History</a></span>
+				<span><a href="#">FAQ</a></span>
+				<span><a href="#">Changelog</a></span>
+				<span><a href="#">Contact</a></span>
+				<span><a href="#" class="logout">Logout</a></span>
+			</div>
+		</header>
+		<div id="tab_contents">
+			<div class="tab_content active">
+				<div class="announcement announcement-info">
+					<span class="dismiss"><i class="close_btn"></i></span>
+					<strong>Note: </strong>Unfortunately the emails sent from <strong>14th - 16th December</strong> can't tell the
+					people on the email. This is because Zoho changed some elements on their page and it takes time to fix everything
+					and deploy the latest.<br>
+					<u>Everything will work normally in the emails sent from now!</u>
+				</div>
+				<fieldset>
+					<legend>Settings</legend>
+					<div class="user_settings">
+						<div class="input">
+							<label>
+								<span>User: </span><input type="text" id="user_email">
+							</label>
+							<button id="verify_email">Verify</button>
+							<button id="change_email" class="hidden">Change</button>
+						</div>
+						<div class="input otp_input hidden">
+							<label>
+								<span>OTP: </span><input type="text" id="otp">
+							</label>
+							<button id="verify_otp">Verify</button>
+						</div>
+						<div class="input extra_settings hidden">
+							<label>
+								<span>Tracking: </span>
+								<label class="switch"><input type="checkbox" id="chk_tracking_status" value="on">
+									<div class="slider round"></div>
+								</label>
+							</label>
+						</div>
+						<div class="input extra_settings hidden" id="notifications_setting">
+							<label>
+								<span>Show Notifications: </span>
+								<label class="switch"><input type="checkbox" id="chk_show_notifs" value="on">
+									<div class="slider round"></div>
+								</label>
+							</label>
+							<span class="error hidden"></span>
+						</div>
+						<div class="input extra_settings hidden" id="debug_setting">
+							<label>
+								<span>Show Debug messages in console: </span>
+								<label class="switch"><input type="checkbox" id="chk_debug" value="on">
+									<div class="slider round"></div>
+								</label>
+							</label>
+							<span class="error hidden"></span>
+						</div>
+						<div class="input extra_settings hidden">
+							<label>
+								<span>Timezone:</span>
+								<select id="timezone_setting">
+								</select>
+							</label>
+						</div>
+						<div class="input extra_settings hidden">
+							<button class="long" id="save_settings">Save Settings</button>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div class="tab_content">
+				<h3>History</h3>
+				<div id="history_div">
+					<table id="history_table">
+						<thead>
+							<tr class="search_row">
+								<td colspan="7"><input type="text" id="history_search" placeholder="Search Text"><button id="history_search_btn">Search</button></td>
+							</tr>
+							<tr>
+								<td>S.No.</td>
+								<td>Actions</td>
+								<td>Subject</td>
+								<td>Total Views</td>
+								<td>Sent <strong>To</strong></td>
+								<td>CC</td>
+								<td>BCC</td>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+					<div class="loader">
+						<div class="loader_spinner visible"></div>
+						<div class="msg">Loading History of tracked emails!</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab_content">
+				<h3>FAQ</h3>
+				<ul class="accordion">
+					<li>
+						<h4>How is the tracking accomplished?</h4>
+						<p>This is actually a common technique used by most tracking software. This is used by all big players like
+							<strong>Mailchimp</strong>,
+							<strong>Mailgun</strong>, and any other provide that gives you the tracking feature. Even <strong>Zoho</strong>
+							uses this in their campaign emails.</p>
+						<p>We simply insert an image inside your mail which when loaded, tells that the email has been read.</p>
+					</li>
+					<li>
+						<h4>Sometimes a user has viewed an email but I can't see that in the list!</h4>
+						<p>As explained above, we insert an 1x1 px image inside your email. To be able to record if the email has been
+							opened, that image will have to be loaded. So, a common scenario is if the recepient has turned off images for
+							your emails then we won't be able to record it!</p>
+					</li>
+					<li>
+						<h4>How accurately do you display the IP address, location etc?</h4>
+						<p>The techniques used to get this info is pretty standard. If a person is behind a proxy, the IP adress will
+							obviously be wrong. Similarly, there are limitations to get location, device info etc. Whatever info I can
+							record, I am displaying to you!</p>
+					</li>
+					<li>
+						<h4>Are you recording my email contents?</h4>
+						<p><strong>Ceratinly NOT!</strong> We only record handful of data like the "To field", "CC field", "BCC field"
+							and "Subject" of the email. Without this information it will be hard to identify the email for you!</p>
+					</li>
+					<li>
+						<h4>If I open my own email, I don't get a notification, why?</h4>
+						<p>If you are testing the functionality of the extension, I recommend you to open your emails in another browser,
+							because we try not to count your own opening as a <em>'view'</em>. If we were to record your own opens, it will
+							be highly inaccurate!</p>
+					</li>
+					<li>
+						<h4>Sometimes, I can't send an email because of your extension!</h4>
+						<p>While we try to test the functionality heavily before releasing, we can't anticipate all the variables like
+							DNS failures etc. If the extension is causing you trouble I will sincerely ask you to contact me and I will try
+							to resolve your issue on an immediate basis.</p>
+					</li>
+					<li>
+						<h4>What about Android, iOS apps?</h4>
+						<p>There is an Android app, but its being revamped. So far, we have not started work on an iOS app!</p>
+					</li>
+				</ul>
+			</div>
+			<div class="tab_content">
+				<div id="release_notes">
+					<h1><em>Soon To Come</em></h1>
+					<ul>
+						<li>Maybe a way to log in w/o an OTP email!</li>
+						<li>Notifications Section inside the extension UI</li>
+						<li>A video of usage</li>
+					</ul>
+					<h1>Version 2.3</h1>
+					<ul>
+						<li>Pagination added to the history tab.</li>
+						<li>Pagination added to the views of an email.</li>
+						<li>Search enabled for both the pagination tabs to focus on a specific record(s)</li>
+					</ul>
+					<h1>Version 2.2</h1>
+					<ul>
+						<li>We can now mute an email from our history.</li>
+						<li>Muted emails will not notify when they are opened, but will record a view which will be visible in history.</li>
+						<li>We can now delete emails from our history.</li>
+						<li>Deleted emails will not notify when they are opened or even be visible in the History</li>
+						<li>List in timezones is now searchable</li>
+					</ul>
+					<h1>Version 2.1.1</h1>
+					<ul>
+						<li>You can cancel the tracker if it is taking too long or if something goes wrong!</li>
+						<li>You can switch on debug messages from options, which will help in debugging a bug!</li>
+					</ul>
+					<h1>Version 2.1</h1>
+					<ul>
+						<li>Notifications are back!</li>
+						<li>You can now pause the notifications from the settings(Useful in Presentations etc)</li>
+						<li>You can directly report a bug/request a feature from the extension which will gain immediate attention.</li>
+						<li>Added an FAQ page</li>
+						<li>Some bug fixes</li>
+					</ul>
+					<h1>Version 2.0</h1>
+					<ul>
+						<li>Made the extension Open Source</li>
+						<li>Timezone Support: Earlier you used to see invalid times of when the email was viewed, but now you can chose
+							your timezone.</li>
+						<li>Rewritten options page.</li>
+						<li>A detailed 'History' page with the details of every view!</li>
+						<li>Removed the option of 'Mail Delay'!</li>
+						<li>Cleared some bugs!</li>
+						<li>Written completely from scratch!</li>
+					</ul>
+					<h1>Version 1.7.5</h1>
+					<ul>
+						<li>Added support for all domains of zoho.</li>
+						<li>Removed some code for backward compatibilty.</li>
+					</ul>
+					<h1>Version &lt;1.7.5</h1>
+					<ul>
+						<li>...</li>
+					</ul>
+				</div>
+			</div>
+			<div class="tab_content">
+				<h3>Contact</h3>
+				<form id="contact_form">
+					<div class="input">
+						<label>
+							<span>Name:</span>
+							<input type="text" name="name">
+						</label>
+					</div>
+					<div class="input">
+						<label>
+							<span>Email:</span>
+							<input type="email" name="email" id="contact_email">
+						</label>
+					</div>
+					<div class="input">
+						<label>
+							<span>Type:</span>
+							<select name="type">
+								<option>Feedback</option>
+								<option>Feature Request</option>
+								<option>Bug</option>
+							</select>
+						</label>
+					</div>
+					<div class="input">
+						<label>
+							<span>Message:</span>
+							<textarea name="message"></textarea>
+						</label>
+					</div>
+					<div class="input submit_input">
+						<button id="contact_submit">Send</button>
+					</div>
+				</form>
+				<!-- Until this section is completely developed, you can mail me at <a href="mailto:admin@zohomailtracker.com">admin@zohomailtracker.com</a> -->
+			</div>
+		</div>
+		<footer>
+			<div class="footer_menu">
+				<span><a href="https://github.com/supernova13892/zmt" target="_blank">Github</a></span>
+				<span>Version: <span id="app_version"></span></span>
+			</div>
+		</footer>
+		<div id="modal">
+			<div id="modal_outer" class="modal_close"></div>
+			<div id="modal_inner">
+				<div class="modal_close" id="modal_close"><i class="close_btn"></i></div>
+				<div id="modal_content"></div>
+			</div>
+		</div>
+		<div id="app_notifs">
+			<div class="content"></div>
+			<div class="close"><i class="close_btn"></i></div>
+		</div>
+		<div id="loader">
+			<div class="loader_spinner"></div>
+			<div class="msg"></div>
+		</div>
+	</div>
+	<script src="js/helpers.js"></script>
+	<script src="js/environment.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/pubnub.js"></script>
+	<script src="js/select2.min.js"></script>
+	<script src="js/options.js"></script>
+</body>
+
+</html>

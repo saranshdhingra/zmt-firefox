@@ -13,6 +13,20 @@
 		"64": "images/logo64.png",
 		"128": "images/logo128.png"
 	},
-	"browser_action": {}
+	"browser_action": {
+		"default_icon": {
+			"19": "images/logo32.png",
+			"38": "images/logo48.png"
+		},
+		"default_title": "ZMT Options"
+	},
+	"options_ui": {
+		"page": "options.html",
+		"browser_style": true
+	},
+	"background": {
+		"scripts": ["js/environment.js", "js/helpers.js", "js/pubnub.js", "js/background.js"]
+	},
+	"permissions":["storage"]
 
 }
